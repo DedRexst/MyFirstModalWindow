@@ -16,8 +16,12 @@ const openMedal = function () {
 };
 
 for (let i = 0; i < btnsOpenMedal.length; i++) {
-    console.log(btnsOpenMedal[i]);
     btnsOpenMedal[i].addEventListener("click", openMedal);
 }
 btnCloseMedal.addEventListener("click", closeMedal);
 overlay.addEventListener("click", closeMedal);
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+        closeMedal();
+    }
+});
